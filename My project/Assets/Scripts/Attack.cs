@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class Attack : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
     void Start()
     {
-        // Get reference to the Animator
-        animator = GetComponent<Animator>();
+        
     }
 
     void Update()
@@ -16,7 +15,11 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // Trigger the attack animation
-            animator.SetTrigger("Attack");
+            animator.SetBool("Attack", true);
+        }
+        else
+        {
+            animator.SetBool("Attack", false);
         }
     }
 }
